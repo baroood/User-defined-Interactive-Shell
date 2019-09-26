@@ -68,6 +68,7 @@ void commandprompt(char *arr)
 			net_cwd[j]=cwd[j];
 		}
 	}
+	// fflush(stdout);
 	printf("<%s@%s:%s> ",username, hostname,net_cwd);
 	fflush(stdout);
 }
@@ -91,16 +92,15 @@ void handler(int sig)
 	{
 		write(2,exit,strlen(exit));
 		write(2,exit_status,strlen(exit_status));
+		commandprompt(actualpath);
 	}
 	free(exit);
-	commandprompt(actualpath);
 	return;
 }
-
 #include "oth.c"
-
 int main(int argc, char** argv)
 {
+	signal(SIGCHLD,handler);
 	char str101[1024],str1[1024];
 	while(1)
 	{

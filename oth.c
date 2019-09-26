@@ -18,24 +18,32 @@ void othfunc(char *str,int ptr)
 	args[i]=NULL;
 	pid_t pid=fork();
 	int status;
+	int l=0;
 	if(flag_bg==1)
 	{
 		if(pid==0)
 		{
 			if(execvp(args[0],args)<0)
+			{
 				perror("error");
+				exit(0);
+			}
 		}
-		else
-		{
-			signal(SIGCHLD,handler);
-		}
+		// else
+		// {
+		// 	signal(SIGCHLD,handler);
+		// 	// exit(0);
+		// }
 	}
 	else
 	{
 		if(pid==0)
 		{
 			if(execvp(args[0],args)<0)
+			{
 				perror("error");
+				exit(0);	
+			}
 		}
 		else
 		{

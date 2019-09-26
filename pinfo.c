@@ -13,7 +13,7 @@ void pinfo(char *str,int ptr)
 		strcpy(str1,"/proc/");
 		printf("pid -- ");
 		for (int i = ptr; i < strlen(str); ++i)
-		{	
+		{
 			printf("%c",str[i]);
 			str1[6+i-ptr]=str[i];
 			if(i==l-1)

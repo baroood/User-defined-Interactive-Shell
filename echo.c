@@ -1,6 +1,6 @@
 void f_echo(char *str1,int ptr,int l)
 {
-	int q=ptr,x,flag=0,flag_x=0;
+	int q=ptr,x,flag=0,flag_x=-1;
 	for (int i = ptr-1; i < strlen(str1); ++i)
 	{
 		if(str1[i]=='\'')
@@ -117,6 +117,13 @@ void f_echo(char *str1,int ptr,int l)
 				str1[i]='\0';
 				printf("%s",str1+x);
 				str1[i]='\"';
+			}
+			else if(str1[i]=='\0')
+			{
+				str1[i]='\0';
+				printf("%s",str1+x);
+				str1[i]=' ';
+				i--;
 			}
 		}
 	}

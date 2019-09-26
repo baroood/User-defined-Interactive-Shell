@@ -49,7 +49,7 @@ void list(char *str,int ptr)
 		if(count==0)
 			{
 				DIR *dr = opendir(".");
-				while ((de = readdir(dr)) != NULL) 
+				while ((de = readdir(dr)) != NULL)
 			  	{
 			  		if(de->d_name[0]!='.')
 						printf("%s  ", de->d_name); 
@@ -77,7 +77,6 @@ void list(char *str,int ptr)
 						if(i==strlen(token)-1)
 							real_path[strlen(actualpath)+i]='\0';
 					}
-
 				}
 				else
 				{
@@ -168,8 +167,7 @@ void list(char *str,int ptr)
 			printf("%s ",date_str +4);
 			printf("%s ",date_str +8 );
 			printf("%s ",date_str +11 );
-			printf("%s\n",temp_filename);	  	
-
+			printf("%s\n",temp_filename);
 	  	}
 	}
 	return;
